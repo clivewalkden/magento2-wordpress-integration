@@ -9,15 +9,17 @@
 
 namespace FishPig\WordPress\Model\ResourceModel;
 
-abstract class AbstractResource extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
+use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
+
+abstract class AbstractResource extends AbstractDb
 {
-	protected $_resource = null;
-	protected $_factory = null;
+    protected $_resource = null;
+    protected $_factory = null;
 
     public function __construct(
-    	\Magento\Framework\Model\ResourceModel\Db\Context $context,
-		\FishPig\WordPress\Model\Context $wpContext,
-    	$connectionName = null
+        \Magento\Framework\Model\ResourceModel\Db\Context $context,
+        \FishPig\WordPress\Model\Context $wpContext,
+        $connectionName = null
     )
     {
         parent::__construct($context, $connectionName);
@@ -26,25 +28,25 @@ abstract class AbstractResource extends \Magento\Framework\Model\ResourceModel\D
         $this->_resource = $wpContext->getResourceConnection();
         $this->_factory = $wpContext->getFactory();
     }
-	
-	public function getConnection()
-	{
-		return $this->_resource->getConnection();
-	}
+    
+    public function getConnection()
+    {
+        return $this->_resource->getConnection();
+    }
 
     
     public function getTable($tableName)
     {
-		return $this->_resource->getTable($tableName);;
+        return $this->_resource->getTable($tableName);;
     }
     
     public function getTablePrefix()
     {
-	    return $this->_resource->getTablePrefix();
+        return $this->_resource->getTablePrefix();
     }
     
     public function getFactory()
     {
-	    return $this->_factory;
+        return $this->_factory;
     }
 }
