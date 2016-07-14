@@ -26,3 +26,8 @@ if( function_exists('acf_add_options_page') ) {
     ]);
 
 }
+
+// Add image sizes
+add_image_size( 'blog-archive', 590, 225, true ); // 590 pixels wide by 225 pixels tall, hard crop mode
+add_image_size( 'blog-single', 890, 330, true ); // 890 pixels wide by 330 pixels tall, hard crop mode
+add_image_size( 'video-archive', 560, 365, true );
